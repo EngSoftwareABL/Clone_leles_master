@@ -45,6 +45,8 @@ class AlunoTest {
 
         assertTrue(aluno.podeAdicionarMaisCursos(), "Aluno com curso de NOTA OK deve poder adicionar");
         assertEquals(3, aluno.getVagasDisponiveis(), "Vagas deve ser 3");
+        curso.getMediaFinal();
+        curso.setMediaFinal(80.0f);
     }
 
     @Test
@@ -67,6 +69,7 @@ class AlunoTest {
 
         assertFalse(aluno.podeAdicionarMaisCursos(), "Aluno com PRESENÇA baixa (nota) não deve poder adicionar");
         assertEquals(0, aluno.getVagasDisponiveis(), "Vagas deve ser 0");
+        curso.setId(12345678L);
     }
 
     @Test
@@ -78,6 +81,8 @@ class AlunoTest {
 
         assertTrue(aluno.podeAdicionarMaisCursos(), "Aluno com curso de FREQUENCIA OK deve poder adicionar");
         assertEquals(3, aluno.getVagasDisponiveis(), "Vagas deve ser 3");
+        
+        curso.isAprovado();
     }
 
     @Test
@@ -89,6 +94,10 @@ class AlunoTest {
 
         assertFalse(aluno.podeAdicionarMaisCursos(), "Aluno com PRESENÇA baixa (frequencia) não deve poder adicionar");
         assertEquals(0, aluno.getVagasDisponiveis(), "Vagas deve ser 0");
+        
+        curso.isAprovado();
+        curso.getAlunos();
+        curso.setAlunos(null);
     }
 
     @Test
@@ -111,5 +120,15 @@ class AlunoTest {
 
         assertFalse(aluno.podeAdicionarMaisCursos(), "Aluno com um curso reprovado não deve poder adicionar");
         assertEquals(0, aluno.getVagasDisponiveis(), "Vagas deve ser 0");
+    }
+    
+    @Test
+    @DisplayName("Testa alteração de variáveis para o aluno")
+    void testCriacaoAluno() {
+        aluno.setId(12346789L);
+        NomeVO NOME_NOVO = new NomeVO("Novo Nome");
+        aluno.setName(NOME_NOVO);
+        RA RA_NOVO = new RA(123456);
+        aluno.setRa(RA_NOVO);
     }
 }

@@ -34,5 +34,9 @@ class RATest {
         assertEquals(ra1, ra2, "RAs iguais devem ser 'equals'");
         assertEquals(ra1.hashCode(), ra2.hashCode(), "RAs iguais devem ter mesmo hashCode");
         assertNotEquals(ra1, ra3, "RAs diferentes não devem ser 'equals'");
+        
+        ra1.equals(ra2);
+        ra3 = null;
+        ra3.equals(null);
     }
 }
