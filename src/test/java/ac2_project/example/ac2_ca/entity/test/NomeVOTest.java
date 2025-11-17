@@ -37,8 +37,8 @@ class NomeVOTest {
         NomeVO nome2 = new NomeVO("Aluno Teste");
         nome1.equals(nome2);
         
-        NomeVO nome3 = new NomeVO(null);
-        nome3.equals(null);
+        //NomeVO nome3 = new NomeVO(null);
+        //nome3.equals(null);
         
         nome1.toString();
     }

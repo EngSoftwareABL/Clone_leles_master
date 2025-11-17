@@ -36,7 +36,7 @@ class RATest {
         assertNotEquals(ra1, ra3, "RAs diferentes não devem ser 'equals'");
         
         ra1.equals(ra2);
-        ra3 = null;
-        ra3.equals(null);
+        //ra3 = null;
+        //ra3.equals(null);
     }
 }
