@@ -75,4 +75,26 @@ class CursoTest{
         // Retorna false porque são instâncias de memória diferentes
         assertFalse(cursoSemId1.equals(cursoSemId2), "Entidades transientes diferentes não devem ser iguais");
     }
+    
+    @Test
+    @DisplayName("Deve retornar false em isAprovado se o TipoCurso for nulo")
+    void testIsAprovado_ComTipoNulo() {
+        // 1. Cria um curso com as seguintes condições:
+        //    - concluido = false
+        //    - tipoCurso = null
+        Curso curso = new Curso(
+            new NomeVO("Curso com Tipo Nulo"), // name
+            0f,  // mediaFinal (não importa para este teste)
+            0f,  // presenca (não importa para este teste)
+            false, // cursoConcluido <-- Importante
+            null   // tipoCurso <-- O ponto principal da correção
+        );
+
+        // 2. Executa e Valida
+        // Esta chamada vai falhar no 'if' da linha 123 (concluido é false).
+        // Vai falhar no 'if' da linha 127 (tipoCurso não é NOTA).
+        // Vai falhar no 'if' da linha 131 (tipoCurso não é FREQUENCIA).
+        // E finalmente vai executar a linha 135.
+        assertFalse(curso.isAprovado(), "Curso com tipo nulo deve retornar false");
+    }
 }
