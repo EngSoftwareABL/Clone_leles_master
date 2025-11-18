@@ -36,8 +36,9 @@ class RATest {
         assertNotEquals(ra1, ra3, "RAs diferentes não devem ser 'equals'");
         
         ra1.equals(ra2);
-        //ra3 = null;
-        //ra3.equals(null);
+        assertFalse(ra1.equals(ra3), "RAs com números diferentes não devem ser iguais");
+        assertTrue(ra1.equals(ra2), "RAs com o mesmo número devem ser iguais");
+        assertFalse(ra1.equals(null), "Um objeto RA não deve ser igual a null");
         ra1.toString();
     }
 }

@@ -5,6 +5,10 @@ import ac2_project.example.ac2_ca.entity.Curso;
 import ac2_project.example.ac2_ca.entity.TipoCurso;
 import ac2_project.example.ac2_ca.entity.NomeVO;
 import ac2_project.example.ac2_ca.entity.RA;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +44,7 @@ class CursoTest{
     	Curso curso2 = criarCurso(TipoCurso.FREQUENCIA, 0f, 99.9f);
     	
     	curso1.equals(curso2);
-    	aluno.equals(curso1);
+    	assertTrue(curso1.equals(curso1), "RAs com o mesmo número devem ser iguais");
+    	assertFalse(curso1.equals(null), "Um curso não deve ser igual a null");
     }
 }
