@@ -78,6 +78,7 @@ class AlunoTest {
         // Presença == 100%
         Curso curso = criarCurso(TipoCurso.FREQUENCIA, 0f, 100f);
         aluno.adicionarCurso(curso);
+        curso.setCursoConcluido(true);
 
         assertTrue(aluno.podeAdicionarMaisCursos(), "Aluno com curso de FREQUENCIA OK deve poder adicionar");
         assertEquals(3, aluno.getVagasDisponiveis(), "Vagas deve ser 3");
@@ -91,10 +92,12 @@ class AlunoTest {
         // Presença < 100%
         Curso curso = criarCurso(TipoCurso.FREQUENCIA, 0f, 99.9f);
         aluno.adicionarCurso(curso);
+        curso.setCursoConcluido(false);;
 
         assertFalse(aluno.podeAdicionarMaisCursos(), "Aluno com PRESENÇA baixa (frequencia) não deve poder adicionar");
         assertEquals(0, aluno.getVagasDisponiveis(), "Vagas deve ser 0");
         
+        curso.isCursoConcluido();
         curso.isAprovado();
         curso.getAlunos();
         curso.setAlunos(null);
