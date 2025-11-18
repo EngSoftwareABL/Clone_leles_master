@@ -37,7 +37,7 @@ class RATest {
         
         //dObject obj = new Object();
     	//assertFalse(ra1.equals(obj), "Um objeto RA não deve ser igual a um objeto de outra classe");
-    	assertFalse(ra1.equals(ra1), "Um objeto RA não deve ser igual a um objeto de outra classe");
+    	//assertFalse(ra1.equals(ra1), "Um objeto RA não deve ser igual a um objeto de outra classe");
         
         ra1.equals(ra2);
         assertFalse(ra1.equals(ra3), "RAs com números diferentes não devem ser iguais");
