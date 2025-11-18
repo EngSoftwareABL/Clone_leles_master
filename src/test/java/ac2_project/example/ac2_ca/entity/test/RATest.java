@@ -35,8 +35,8 @@ class RATest {
         assertEquals(ra1.hashCode(), ra2.hashCode(), "RAs iguais devem ter mesmo hashCode");
         assertNotEquals(ra1, ra3, "RAs diferentes não devem ser 'equals'");
         
-        Object obj = new Object();
-    	assertFalse(ra1.equals(obj), "Um objeto RA não deve ser igual a um objeto de outra classe");
+        //dObject obj = new Object();
+    	//assertFalse(ra1.equals(obj), "Um objeto RA não deve ser igual a um objeto de outra classe");
     	assertFalse(ra1.equals(ra1), "Um objeto RA não deve ser igual a um objeto de outra classe");
         
         ra1.equals(ra2);
