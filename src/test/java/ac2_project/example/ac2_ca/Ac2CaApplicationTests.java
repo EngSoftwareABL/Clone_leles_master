@@ -6,8 +6,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Ac2CaApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+        // Este teste valida o carregamento do contexto, como explicado acima.
+    }
 
+    @Test
+    void applicationContextMain() {
+        // Este teste executa o main() apenas para fins de cobertura.
+        Ac2CaApplication.main(new String[] {});
+    }
 }
