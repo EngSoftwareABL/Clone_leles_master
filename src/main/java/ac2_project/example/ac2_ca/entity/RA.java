@@ -36,10 +36,19 @@ public final class RA implements Serializable {
 
     @Override
     public boolean equals(Object o) {
+        // 1. Testa se é a mesma instância de memória
         if (this == o) return true;
+
+        // 2. Testa se é nulo ou se é de classe diferente
+        // Esta é a linha que pega o seu teste
         if (o == null || getClass() != o.getClass()) return false;
+
+        // 3. Agora que sabemos que é da mesma classe, faz o cast
         RA ra = (RA) o;
-        return numero == ra.numero;
+
+        // 4. Compara os valores internos (assumindo que o campo se chama 'numero')
+        // Se você usa o getNumero(), troque para: return Objects.equals(this.getNumero(), ra.getNumero());
+        return Objects.equals(this.numero, ra.numero); 
     }
 
     @Override
