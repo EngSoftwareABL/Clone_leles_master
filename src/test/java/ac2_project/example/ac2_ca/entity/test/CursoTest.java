@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
@@ -42,9 +43,36 @@ class CursoTest{
     void testeEquals() {
     	Curso curso1 = criarCurso(TipoCurso.FREQUENCIA, 0f, 99.9f);
     	Curso curso2 = criarCurso(TipoCurso.FREQUENCIA, 0f, 99.9f);
+    	curso2.setTipoCurso(TipoCurso.FREQUENCIA);
+    	Object obj = new Object();
+    	assertFalse(curso1.equals(obj), "Um objeto RA não deve ser igual a um objeto de outra classe");
     	
     	curso1.equals(curso2);
     	assertTrue(curso1.equals(curso1), "RAs com o mesmo número devem ser iguais");
     	assertFalse(curso1.equals(null), "Um curso não deve ser igual a null");
+    }
+
+    @Test
+    @DisplayName("Equals deve cobrir o branch 'this.id != null' e 'outro.id == null'")
+    void testEquals_UmIdNulo() {
+        // Supondo que você tem um 'setId' ou 'BaseEntity' com 'setId'
+        Curso cursoComId = new Curso();
+        cursoComId.setId(1L); // <--- Objeto 1 tem ID
+
+        Curso cursoSemId = new Curso(); // <--- Objeto 2 NÃO tem ID
+        
+        // Cobre o branch (true && false) da Linha 116, que cai na Linha 119
+        assertFalse(cursoComId.equals(cursoSemId), "Entidade com ID não deve ser igual a entidade sem ID");
+    }
+
+    @Test
+    @DisplayName("Equals deve cobrir o branch 'this.id == null' e 'outro.id == null'")
+    void testEquals_AmbosIdsNulos() {
+        Curso cursoSemId1 = new Curso(); // Objeto 1 NÃO tem ID
+        Curso cursoSemId2 = new Curso(); // Objeto 2 NÃO tem ID
+        
+        // Cobre o branch (false && ...) da Linha 116, que cai na Linha 119
+        // Retorna false porque são instâncias de memória diferentes
+        assertFalse(cursoSemId1.equals(cursoSemId2), "Entidades transientes diferentes não devem ser iguais");
     }
 }
