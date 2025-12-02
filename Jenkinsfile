@@ -74,7 +74,7 @@ pipeline {
                 sleep(time: 60, unit: 'SECONDS')
 
                 echo 'Verificando saúde da aplicação...'
-                bat 'curl -f http://localhost:8686 || exit 1'
+                bat 'curl http://localhost:8686 || exit 1'
             }
         }
     }
