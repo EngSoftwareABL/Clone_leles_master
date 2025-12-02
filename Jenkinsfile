@@ -6,7 +6,7 @@ pipeline {
         DOCKER_TAG = 'latest'
         // ATENÇÃO: Garanta que o ID da credencial no Jenkins é 'docker_jenkins'
         // Se for outro, mude apenas o valor entre aspas abaixo.
-        DOCKER_CRED_ID = 'docker_jenkins'
+        DOCKER_CRED_ID = 'de542259-35b0-4652-945f-ecb2e51bfc55'
     }
 
     stages {
