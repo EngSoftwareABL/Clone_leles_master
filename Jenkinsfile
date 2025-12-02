@@ -1,13 +1,6 @@
 pipeline {
     agent any 
 
-    tools {
-        // Tenta usar o Maven e JDK configurados no PATH do Windows. 
-        // Se você tiver configurado no "Global Tool Configuration" do Jenkins com nomes específicos, ajuste aqui.
-        maven 'maven' 
-        jdk 'jdk17' 
-    }
-
     environment {
         // Definições baseadas no seu PDF [cite: 387]
         DOCKER_IMAGE = 'leofonsecaa/ac2_ca'
